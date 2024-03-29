@@ -1,10 +1,14 @@
 import { useState } from "react";
 import { useZxing } from "react-zxing";
 
+import { useMediaDevices } from "react-media-devices";
+
 export const BarcodeScanner: React.FC<{}> = () => {
   const [result, setResult] = useState("");
   const [count, setCount] = useState(0);
   const [paused, setPaused] = useState(false);
+
+  const { devices } = useMediaDevices();
 
   const {
     ref,
@@ -36,6 +40,11 @@ export const BarcodeScanner: React.FC<{}> = () => {
         <span>Last result:</span>
         <span>{result}</span>
       </p>
+      <ul>
+        {devices?.map((device) => (
+          <li key={device.id}>{device.label}</li>
+        ))}
+      </ul>
       <div>
         <button onClick={() => setPaused(!paused)}>
           {paused ? "Resume" : "Pause"}

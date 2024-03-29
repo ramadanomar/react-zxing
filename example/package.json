@@ -5,6 +5,7 @@
   "dependencies": {
     "react": "link:../node_modules/react",
     "react-dom": "link:../node_modules/react-dom",
+    "react-media-devices": "^1.1.5",
     "react-zxing": "link:.."
   },
   "devDependencies": {
